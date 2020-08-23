@@ -1,20 +1,61 @@
-# Site settings
-title: Vasia Ampatzi
-description: Personal Website
-# baseurl: "/particle" # the subpath of your site, e.g. /blog
-url: "https://ampatzi.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+site: Vasia Abatzi
 
-# User settings
-username: Vasia Ampatzi
-user_description: I grew up in Greece where I studied marketing and advertising, caring make a difference. I am a fast learner and a tireless seeker to extend my skills. Nowadays, I am playing around with video making process as my dream is to become a mixed media visual artist. I join to travel, to watch movies (all night long), and to observe the world from my point of view.
-#user_title: Advertiser
-email: vasia.abatzi@gmail.com
-#twitter_username: lorem_ipsum
-#github_username:  ampatzi
-#gplus_username:  lorem_ipsum
+url: 
+baseurl: 
 
-# Google-analytics
-google-analytics:
-  id: "UA-114067777-1"
+collections:
+  pages:
+    output: true
+    permalink: /:name
+  posts:
+    output: true
+    permalink: /blog/:slug
+  projects:
+    output: true
+    permalink: /project/:slug
 
-exclude: ['package.json', 'src' , 'node_modules']
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+grid_alignments:
+  - top
+  - center
+  - bottom
